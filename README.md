@@ -1,13 +1,13 @@
-# 书签栏新收藏置顶 / Bookmark Bar First
+# 新收藏置顶 / Bookmark Bar First
 
-将新收藏到 Chrome 书签栏的网页自动放到第一位。
+将新收藏的网页自动放到所选文件夹第一位。适用于书签栏、“我的网站”及其他书签文件夹。
 
 ## 功能
 
-- 新建到书签栏的网页书签自动置顶。
-- 从其他文件夹移入书签栏的网页书签也会置顶，包括已有书签。
+- 新建的网页书签在当前保存文件夹内自动置顶。
+- 跨文件夹移动的网页书签也会在目标文件夹内置顶，包括已有书签。
 - 不批量整理已有书签，不改变其他书签的相对顺序。
-- 不处理子文件夹中的收藏和新建文件夹。
+- 支持任意层级的子文件夹；新建文件夹本身不自动移动。
 - 保留同一文件夹内的手动拖动排序。
 - 兼容本地书签栏及账号书签栏。
 
@@ -23,7 +23,7 @@
 3. 打开“开发者模式”。
 4. 点击“加载已解压的扩展程序”。
 5. 选择仓库中的 **extension 文件夹**，该文件夹内直接包含 `manifest.json`。
-6. 打开一个尚未收藏的网页，点击地址栏星标，并选择“书签栏”。新书签应出现在最左侧。
+6. 打开一个尚未收藏的网页，点击地址栏星标，并选择“书签栏”或“我的网站”等文件夹。新书签应出现在该文件夹第一位。
 
 安装后请保留 extension 文件夹。更新源码后，点击扩展卡片上的重新加载按钮。
 卸载扩展不会删除书签，也不会恢复之前调整的位置。
@@ -37,9 +37,9 @@ Chrome 自身的书签同步由 Chrome 和用户账号设置管理。
 
 ## 验证与已知限制
 
-版本：2.1.0。用户已确认该版本在实际 Chrome 中新收藏置顶正常。
+版本：2.2.0。用户已确认旧版 2.1.0 的书签栏置顶正常；2.2.0 的任意文件夹支持通过模拟回归，尚待用户在实际 Chrome 中重新加载后验证。
 
-自动回归覆盖：本地/账号书签栏、先创建后移动、子文件夹、导入事件、手动排序、删除竞态、异常后继续处理和后台重新初始化。
+自动回归覆盖：本地/账号书签栏、先创建后移动、子文件夹置顶、跨目录保存、受管理目录保护、导入事件、手动排序、删除竞态、异常后继续处理和后台重新初始化。
 
 这些自动回归使用模拟的 Chrome API，不等同于浏览器端到端测试。
 后台长时间休眠后首次收藏、导入期间后台重启尚未完成真实浏览器验证。
@@ -64,7 +64,7 @@ node tests/bookmarks.cjs
 
 ---
 
-Automatically places new website bookmarks at the beginning of the Chrome bookmarks bar. Website bookmarks moved into the bar from another folder are also placed first. Existing bookmarks are not bulk-sorted.
+Automatically places new website bookmarks first in their selected folder, including the bookmarks bar and nested folders. Bookmarks moved between folders are also placed first in their destination. Existing bookmarks are not bulk-sorted.
 
 Install by loading the `extension` directory as an unpacked extension in Chrome Developer Mode. No website permissions, telemetry, advertising, or network requests are included. Chrome Web Store publication is not available yet.
 

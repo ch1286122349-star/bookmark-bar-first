@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "书签栏新收藏置顶",
-  "version": "2.1.0",
-  "description": "新收藏到书签栏的网页自动排在第一位。其他文件夹和导入书签不变。",
+  "name": "新收藏置顶",
+  "version": "2.2.0",
+  "description": "新收藏的网页自动排到所选文件夹第一位，适用于书签栏和所有书签文件夹。",
   "permissions": [
     "bookmarks"
   ],
